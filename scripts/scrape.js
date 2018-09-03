@@ -22,7 +22,7 @@ var scrape = function (cb) {
             headline: headNeat,
             summary: sumNeat
         
-        articles.push(datatoAdd);
+        articles.push(datatoAdd)
         });
         cb(articles);
       
