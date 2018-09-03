@@ -10,6 +10,9 @@ var app = express();
 
 var router = express.Router();
 
+// require our routes file pass our router object
+require("./config/routes")(router);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + "/public"));
