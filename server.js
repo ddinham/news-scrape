@@ -25,14 +25,12 @@ app.use(bodyParser.urlencoded({
 
 app.use(router);
 
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-useMongoClient: true
-});
+mongoose.connect(MONGODB_URI);
 
-mongoose.connect(db, function (error) {
+mongoose.connect(MONGODB_URI, function (error) {
   if (error) {
     console.log(error);
   } else {
