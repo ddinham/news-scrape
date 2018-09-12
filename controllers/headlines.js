@@ -1,7 +1,6 @@
 var scrape = require("../scripts/scrape");
 var makeDate = require("../scripts/date");
 
-// bring in HeadLine and Note (mongoose) models
 var Headline = require("../models/Headline");
 
 module.exports = {

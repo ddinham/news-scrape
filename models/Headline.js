@@ -1,9 +1,7 @@
 var mongoose = require("mongoose");
 
-// Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
-// Using the Schema constructor, create a new UserSchema object
 var headlineSchema = new Schema({
   headline: {
     type: String,
@@ -26,8 +24,7 @@ var headlineSchema = new Schema({
 });
 
 
-// This creates our model from the above schema, using mongoose's model method
+
 var Headline = mongoose.model("Headline", headlineSchema);
 
-// Export the Headline model
 module.exports = Headline;
