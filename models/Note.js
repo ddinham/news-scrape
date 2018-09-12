@@ -4,12 +4,8 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new NoteSchema object
-// This is similar to a Sequelize model
 var noteSchema = new Schema({
-  _headlineId: {
-    type: Schema.Types.ObjectId,
-    ref: "Headline"
-  }, 
+  headlineId: String,
   date: String,
   noteText: String
 });

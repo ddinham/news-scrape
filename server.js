@@ -10,10 +10,7 @@ var app = express();
 
 var router = express.Router();
 
-// require our routes file pass our router object
 require("./config/routes")(router);
-
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + "/public"));
 
@@ -22,23 +19,27 @@ app.engine("handlebars", expressHandlebars({
 }));
 app.set("view engine", "handlebars");
 
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+app.use(router);
+
 var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
+// mongoose.connect(MONGODB_URI, {
+// useMongoClient: true
+// });
 
-mongoose.connect(db, function(error){
-  if(error) {
+mongoose.connect(db, function (error) {
+  if (error) {
     console.log(error);
-  }
-  else {
+  } else {
     console.log("mongoose connection is successful")
   }
 });
 
-
-
-app.use(router);
-
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
 });
